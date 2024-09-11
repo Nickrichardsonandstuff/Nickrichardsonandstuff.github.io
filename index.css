@@ -73,13 +73,13 @@ font-family: webdings;
       
    }
    .nav a:hover{
-
+padding-left: 15%;
       background-color: rgb(193, 69, 204);
    }
 
    .nav a:hover::after{
 
-      content: '!'
+      content: '!?,'
       
    }
    .content{
