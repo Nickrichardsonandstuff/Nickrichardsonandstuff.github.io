@@ -4,7 +4,7 @@ margin: 0;
 padding: 0;
 
 --theme-primary:#0C6291 ;
---theme-secondary: #A63446;
+--theme-secondary: maroon;
 --theme-accent: #FBFEF9;
 --theme-surface:#000004 ;
 
@@ -19,7 +19,7 @@ color: var(--theme-secondary-content);
 }
 
 body{
-    background: var(--theme-accent);
+    background: var(--theme-surface);
 }
 
 .flex-row{
@@ -47,7 +47,7 @@ height: 200px;
 border-radius: 100%;
 border:solid;
 border-width: 2em;
-border-color: aquamarine;
+border-color: maroon;
 }
 
 
@@ -108,3 +108,11 @@ color: var(--theme-primary-content);
                             
                             }
                 
+                            .w-dvw{
+                                width :100dvW;
+                            }
+
+                            .h-dvh{
+                                height :100dvH;
+                            }
+
