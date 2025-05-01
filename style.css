@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+#container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border: 2px solid white;
+    overflow: hidden;
+}
+
+h1 {
+    position: absolute;
+    font-size: 50px;
+    display: flex;
+}
+
+h1 span {
+    position: absolute;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: grab;
+}
