@@ -1,16 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("container");
     const text = document.getElementById("bouncy-text");
-    const walls = document.querySelectorAll(".wall");
     const letters = text.textContent.split("");
 
     text.innerHTML = ""; // Clear original text
 
-    letters.forEach((letter, index) => {
+    letters.forEach((letter) => {
         const span = document.createElement("span");
         span.textContent = letter;
 
-        // **FIX:** Ensure letters start fully inside the box
+        // Ensure letters start fully inside the box
         span.style.left = `${Math.random() * (container.clientWidth - 50)}px`;
         span.style.top = `${Math.random() * (container.clientHeight - 50)}px`;
 
@@ -41,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let newX = event.clientX - offsetX - container.offsetLeft;
             let newY = event.clientY - offsetY - container.offsetTop;
 
-            // **FIX:** Restrict dragging within 400px boundary
+            // Restrict dragging within container bounds
             newX = Math.max(0, Math.min(newX, container.clientWidth - draggedElement.offsetWidth));
             newY = Math.max(0, Math.min(newY, container.clientHeight - draggedElement.offsetHeight));
 
@@ -65,9 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 let vx = parseFloat(span.dataset.vx);
                 let vy = parseFloat(span.dataset.vy);
 
-                // **FIX:** Keep letters bouncing inside the 400px box
-                if (x + span.offsetWidth >= container.clientWidth || x <= 0) span.dataset.vx = -vx;
-                if (y + span.offsetHeight >= container.clientHeight || y <= 0) span.dataset.vy = -vy;
+                // Check collision with container boundaries
+                if (x + span.offsetWidth >= container.clientWidth || x <= 0) {
+                    vx = -vx;
+                    span.dataset.vx = vx;
+                }
+                if (y + span.offsetHeight >= container.clientHeight || y <= 0) {
+                    vy = -vy;
+                    span.dataset.vy = vy;
+                }
 
                 span.style.left = `${x + vx}px`;
                 span.style.top = `${y + vy}px`;
